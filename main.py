@@ -66,8 +66,8 @@ if __name__ == '__main__':
 	doc_5 = ("Fifth", sentences5)
 	docs = [doc_1, doc_2, doc_3, doc_4, doc_5]
 
-	length_max = int(raw_input("Enter summary length: "))
-	epoch = int(raw_input("Enter iterations: "))
+	length_max = 100
+	epoch = 10
 	# length_max = 100
 	# epoch = 1000
 	population_size = 50

@@ -161,7 +161,7 @@ class GeneticOptimizer(object):
 
     def population_intitialization(self):
         population_intitialization = self.create_population(self._size_pop)
-        print ("initial population len:", len(population_intitialization))
+        # print ("initial population len:", len(population_intitialization))
         return population_intitialization
 
     def compare(self, scored_individual, best_scored_individual):
@@ -176,7 +176,7 @@ class GeneticOptimizer(object):
         else:
             best_individual = (None, 10000)
         for i in range(epoch):
-            print ("Iteration: ", i, " -- best individual: ", best_individual[0])
+            # print ("Iteration: ", i, " -- best individual: ", best_individual[0])
             scored_population = self.scoring_population(population)
             sorted_population = sorted(scored_population, key=lambda tup: tup[1], reverse=self._is_max)
             best_individual_in_generation = sorted_population[0]
