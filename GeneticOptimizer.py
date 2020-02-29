@@ -15,10 +15,9 @@ tokenizer = RegexpTokenizer(r'\w+')
 #rate_of_survival: rate_of_survival
 #mutation_rate: rate_of_mutation
 #is_max: is_max
-#rep_of_sentences: rep_of_sentences
 
 class GeneticOptimizer(object):
-    def __init__(self, func_fit, documents, rep_documents, len_max, size_pop, rate_of_survival, mutation_rate, rate_of_mutation, is_max=False, rep_of_sentences=None):
+    def __init__(self, func_fit, documents, rep_documents, len_max, size_pop, rate_of_survival, mutation_rate, rate_of_mutation, is_max=False):
         np.random.seed(123)
 
         self._fitness_fun = func_fit
@@ -30,7 +29,6 @@ class GeneticOptimizer(object):
 
         self._documents = documents
         self._rep_documents = rep_documents
-        self._rep_of_sentences = rep_of_sentences
         self._len_max = len_max
         
         self._sentences = []
@@ -58,10 +56,8 @@ class GeneticOptimizer(object):
         scored_population = []
         for individual in population:
             # score = self._fitness_fun(individual, self._documents)
-            if self._rep_of_sentences != None:
-                score = self._fitness_fun(individual, self._rep_documents, self._rep_of_sentences)
-            else:
-                score = self._fitness_fun(individual, self._rep_documents)
+          
+            score = self._fitness_fun(individual, self._rep_documents)
             scored_population.append((individual, score))
 
         return scored_population
